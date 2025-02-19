@@ -5,7 +5,7 @@
   - Participation awards: $XXXXXX  USDC
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts February 24, 2025 20:00 UTC
-- Ends March 17, 2025 UTC
+- Ends March 17, 2025 20:00 UTC
 
 ## Formal Verification Details
 
