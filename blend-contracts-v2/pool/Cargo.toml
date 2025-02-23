@@ -1,0 +1,34 @@
+[package]
+name = "pool"
+version = "1.0.0"
+license = "AGPL-3.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+doctest = false
+
+[features]
+testutils = [
+    "soroban-sdk/testutils",
+]
+
+[dependencies]
+soroban-sdk = { workspace = true }
+soroban-fixed-point-math = { workspace = true }
+cast = { workspace = true }
+sep-40-oracle = { workspace = true }
+sep-41-token = { workspace = true}
+moderc3156 = { workspace = true}
+
+[dev-dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
+backstop = { path = "../backstop", features = ["testutils"] }
+sep-40-oracle = { workspace = true, features = ["testutils"] }
+sep-41-token = { workspace = true, features = ["testutils"] }
+blend-contract-sdk = { workspace = true, features = ["testutils"] }
+mock-pool-factory = { path = "../mocks/mock-pool-factory", features = ["testutils"] }
+moderc3156-example = { path = "../mocks/moderc3156", features = ["testutils"] }
+
+

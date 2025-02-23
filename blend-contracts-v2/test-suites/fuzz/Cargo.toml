@@ -1,0 +1,38 @@
+[package]
+name = "test-suites-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+soroban-fixed-point-math = "1.3.0"
+soroban-sdk = { version = "22.0.4", features = ["testutils"] }
+extension-trait = "1"
+
+[dependencies.test-suites]
+path = ".."
+
+[dependencies.pool]
+path = "../../pool"
+features = ["testutils"]
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[profile.release]
+debug = 1
+
+[lib]
+name = "fuzz_common"
+path = "lib.rs"
+
+[[bin]]
+name = "fuzz_pool_general"
+path = "fuzz_targets/fuzz_pool_general.rs"
+test = false
+doc = false

@@ -1,0 +1,26 @@
+[package]
+name = "test-suites"
+version = "0.0.0"
+authors = ["Blend Capital <gm@blend.capital>"]
+license = "AGPL-3.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["rlib"]
+doctest = false
+
+[dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
+rand = { version = "0.7.3" }
+soroban-fixed-point-math = { workspace = true }
+pool = { path = "../pool", features = ["testutils"] }
+backstop = { path = "../backstop", features = ["testutils"] }
+pool-factory = { path = "../pool-factory", features = ["testutils"] }
+mock-pool-factory = { path = "../mocks/mock-pool-factory", features = ["testutils"] }
+moderc3156-example = { path = "../mocks/moderc3156" }
+cast = { workspace = true }
+sep-40-oracle = { workspace = true, features = ["testutils"] }
+sep-41-token = { workspace = true, features = ["testutils"] }
+blend-contract-sdk = { workspace = true, features = ["testutils"] }
+

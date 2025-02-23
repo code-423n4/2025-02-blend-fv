@@ -1,0 +1,48 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "backstop",
+    "pool",
+    "mocks/mock-pool-factory",
+    "mocks/moderc3156",
+    "pool-factory",
+    "test-suites"
+]
+
+[profile.release-with-logs]
+inherits = "release"
+debug-assertions = true
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true # DEV: Do not remove this check - doing so will create vulnerabilities
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true
+
+[workspace.dependencies.soroban-sdk]
+version = "22.0.4"
+
+[workspace.dependencies.soroban-fixed-point-math]
+version = "1.3.0"
+
+[workspace.dependencies.cast]
+version = "0.3.0"
+default-features = false
+
+[workspace.dependencies.sep-40-oracle]
+version = "1.2.0"
+
+[workspace.dependencies.sep-41-token]
+version = "1.2.0"
+
+[workspace.dependencies.blend-contract-sdk]
+version = "1.22.0"
+
+[workspace.dependencies.moderc3156]
+git = "https://github.com/xycloo/xycloans"
+rev = "d9a7ae1"
