@@ -1,0 +1,14 @@
+export RUSTFLAGS := "-C strip=none" 
+
+root := "../"
+target := "../target"	
+
+build-deps:
+    cd {{root}} && cargo rustc --manifest-path=pool-factory/Cargo.toml --crate-type=cdylib --target=wasm32-unknown-unknown --release --features certora
+    cd {{root}} && cargo rustc --manifest-path=backstop/Cargo.toml --crate-type=cdylib --target=wasm32-unknown-unknown --release --features certora
+    cd {{root}} && cargo rustc --manifest-path=pool/Cargo.toml --crate-type=cdylib --target=wasm32-unknown-unknown --release --features certora
+build: build-deps
+    cargo rustc --crate-type=cdylib --target=wasm32-unknown-unknown --release --features certora
+
+clean:
+    rm -rf {{target}}

@@ -14,6 +14,7 @@ doctest = false
 testutils = [
     "soroban-sdk/testutils",
 ]
+certora = []
 
 [dependencies]
 soroban-sdk = { workspace = true }
@@ -21,6 +22,11 @@ soroban-fixed-point-math = { workspace = true }
 cast = { workspace = true }
 sep-41-token = { workspace = true }
 blend-contract-sdk = { workspace = true }
+
+cvlr = { workspace = true, default-features = false }
+cvlr-soroban = { workspace = true }
+cvlr-soroban-derive = { workspace = true }
+cvlr-soroban-macros = { workspace = true }
 
 [dev-dependencies]
 soroban-sdk = { workspace = true, features = ["testutils"] }
