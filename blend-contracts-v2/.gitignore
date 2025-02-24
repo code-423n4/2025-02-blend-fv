@@ -9,3 +9,7 @@ test_snapshots/
 local.*
 
 /js
+
+*.wat
+.certora_internal
+emv-*
