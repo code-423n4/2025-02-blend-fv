@@ -63,6 +63,7 @@ Note that some setup work and basic properties are already being provided by the
   cd confs
   certoraSorobanProver.py FILENAME.conf
   ```
+  - Note that you might first need to run `chmod +x certora_build.py` before you run `cd confs`
 
 ## Incentives
 - 20,000k of the total pool is allocated for FV.
