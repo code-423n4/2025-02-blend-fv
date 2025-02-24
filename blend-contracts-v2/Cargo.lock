@@ -168,6 +168,10 @@ version = "1.0.0"
 dependencies = [
  "blend-contract-sdk",
  "cast",
+ "cvlr",
+ "cvlr-soroban",
+ "cvlr-soroban-derive",
+ "cvlr-soroban-macros",
  "mock-pool-factory",
  "sep-41-token",
  "soroban-fixed-point-math",
@@ -355,6 +359,126 @@ dependencies = [
  "quote",
  "syn 2.0.90",
 ]
+
+[[package]]
+name = "cvlr"
+version = "0.3.0"
+source = "git+https://github.com/Certora/cvlr.git#a0af25727d6b4dd9856bf37d0ec2cb9e529803bf"
+dependencies = [
+ "cvlr-asserts 0.3.0 (git+https://github.com/Certora/cvlr.git)",
+ "cvlr-early-panic",
+ "cvlr-hook",
+ "cvlr-log 0.3.0 (git+https://github.com/Certora/cvlr.git)",
+ "cvlr-macros",
+ "cvlr-mathint",
+ "cvlr-nondet 0.3.0 (git+https://github.com/Certora/cvlr.git)",
+]
+
+[[package]]
+name = "cvlr-asserts"
+version = "0.3.0"
+source = "git+https://github.com/1arie1/cvlr.git#a0af25727d6b4dd9856bf37d0ec2cb9e529803bf"
+
+[[package]]
+name = "cvlr-asserts"
+version = "0.3.0"
+source = "git+https://github.com/Certora/cvlr.git#a0af25727d6b4dd9856bf37d0ec2cb9e529803bf"
+
+[[package]]
+name = "cvlr-early-panic"
+version = "0.3.0"
+source = "git+https://github.com/Certora/cvlr.git#a0af25727d6b4dd9856bf37d0ec2cb9e529803bf"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.90",
+]
+
+[[package]]
+name = "cvlr-hook"
+version = "0.3.0"
+source = "git+https://github.com/Certora/cvlr.git#a0af25727d6b4dd9856bf37d0ec2cb9e529803bf"
+dependencies = [
+ "quote",
+ "syn 2.0.90",
+]
+
+[[package]]
+name = "cvlr-log"
+version = "0.3.0"
+source = "git+https://github.com/1arie1/cvlr.git#a0af25727d6b4dd9856bf37d0ec2cb9e529803bf"
+
+[[package]]
+name = "cvlr-log"
+version = "0.3.0"
+source = "git+https://github.com/Certora/cvlr.git#a0af25727d6b4dd9856bf37d0ec2cb9e529803bf"
+dependencies = [
+ "cvlr-mathint",
+]
+
+[[package]]
+name = "cvlr-macros"
+version = "0.3.0"
+source = "git+https://github.com/Certora/cvlr.git#a0af25727d6b4dd9856bf37d0ec2cb9e529803bf"
+dependencies = [
+ "darling",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.90",
+]
+
+[[package]]
+name = "cvlr-mathint"
+version = "0.3.0"
+source = "git+https://github.com/Certora/cvlr.git#a0af25727d6b4dd9856bf37d0ec2cb9e529803bf"
+dependencies = [
+ "cvlr-asserts 0.3.0 (git+https://github.com/Certora/cvlr.git)",
+ "cvlr-nondet 0.3.0 (git+https://github.com/Certora/cvlr.git)",
+]
+
+[[package]]
+name = "cvlr-nondet"
+version = "0.3.0"
+source = "git+https://github.com/1arie1/cvlr.git#a0af25727d6b4dd9856bf37d0ec2cb9e529803bf"
+dependencies = [
+ "cvlr-asserts 0.3.0 (git+https://github.com/1arie1/cvlr.git)",
+]
+
+[[package]]
+name = "cvlr-nondet"
+version = "0.3.0"
+source = "git+https://github.com/Certora/cvlr.git#a0af25727d6b4dd9856bf37d0ec2cb9e529803bf"
+dependencies = [
+ "cvlr-asserts 0.3.0 (git+https://github.com/Certora/cvlr.git)",
+]
+
+[[package]]
+name = "cvlr-soroban"
+version = "0.3.0"
+source = "git+https://github.com/Certora/cvlr-soroban.git#f4fab1b6b360159eed0a7582b35ba85b80369460"
+dependencies = [
+ "cvlr-asserts 0.3.0 (git+https://github.com/1arie1/cvlr.git)",
+ "cvlr-log 0.3.0 (git+https://github.com/1arie1/cvlr.git)",
+ "cvlr-nondet 0.3.0 (git+https://github.com/1arie1/cvlr.git)",
+ "soroban-sdk",
+]
+
+[[package]]
+name = "cvlr-soroban-derive"
+version = "0.3.0"
+source = "git+https://github.com/Certora/cvlr-soroban.git#f4fab1b6b360159eed0a7582b35ba85b80369460"
+dependencies = [
+ "darling",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.90",
+ "uuid",
+]
+
+[[package]]
+name = "cvlr-soroban-macros"
+version = "0.3.0"
+source = "git+https://github.com/Certora/cvlr-soroban.git#f4fab1b6b360159eed0a7582b35ba85b80369460"
 
 [[package]]
 name = "darling"
@@ -866,6 +990,10 @@ dependencies = [
  "backstop",
  "blend-contract-sdk",
  "cast",
+ "cvlr",
+ "cvlr-soroban",
+ "cvlr-soroban-derive",
+ "cvlr-soroban-macros",
  "mock-pool-factory",
  "moderc3156",
  "moderc3156-example",
@@ -879,6 +1007,10 @@ dependencies = [
 name = "pool-factory"
 version = "1.0.0"
 dependencies = [
+ "cvlr",
+ "cvlr-soroban",
+ "cvlr-soroban-derive",
+ "cvlr-soroban-macros",
  "rand 0.7.3",
  "soroban-sdk",
 ]
@@ -1513,6 +1645,15 @@ name = "unicode-ident"
 version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "301abaae475aa91687eb82514b328ab47a211a533026cb25fc3e519b86adfc3c"
+
+[[package]]
+name = "uuid"
+version = "1.12.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b3758f5e68192bb96cc8f9b7e2c2cfdabb435499a28499a42f8f984092adad4b"
+dependencies = [
+ "getrandom 0.2.11",
+]
 
 [[package]]
 name = "version_check"
