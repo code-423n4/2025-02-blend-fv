@@ -12,9 +12,15 @@ doctest = false
 
 [features]
 testutils = ["soroban-sdk/testutils"]
+certora = []
 
 [dependencies]
 soroban-sdk = { workspace = true }
+
+cvlr = { workspace = true, default-features = false }
+cvlr-soroban = { workspace = true }
+cvlr-soroban-derive = { workspace = true }
+cvlr-soroban-macros = { workspace = true }
 
 [dev-dependencies]
 soroban-sdk = { workspace = true, features = ["testutils"] }
