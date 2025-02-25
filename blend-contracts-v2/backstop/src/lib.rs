@@ -13,6 +13,8 @@ mod events;
 mod storage;
 mod testutils;
 
+mod certora_specs;
+
 pub use backstop::{PoolBackstopData, PoolBalance, UserBalance, Q4W};
 pub use contract::*;
 pub use errors::BackstopError;
