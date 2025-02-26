@@ -1,5 +1,11 @@
 use crate::{contract::require_nonnegative, emissions, storage, BackstopError};
+
+
+#[cfg(feature = "certora")]
+use crate::certora_specs::mocks::token::TokenClient;
+#[cfg(not(feature = "certora"))]
 use sep_41_token::TokenClient;
+
 use soroban_sdk::{panic_with_error, unwrap::UnwrapOptimized, Address, Env};
 
 use super::Q4W;
@@ -17,6 +23,7 @@ pub fn execute_queue_withdrawal(
     let mut user_balance = storage::get_user_balance(e, pool_address, from);
 
     // update emissions
+    #[cfg(not(feature = "certora"))]
     emissions::update_emissions(e, pool_address, &pool_balance, from, &user_balance);
 
     user_balance.queue_shares_for_withdrawal(e, amount);

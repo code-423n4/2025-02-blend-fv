@@ -1,12 +1,7 @@
 use crate::{
-    backstop::{self, load_pool_backstop_data, PoolBackstopData, UserBalance, Q4W},
-    constants::{MAX_BACKFILLED_EMISSIONS, SCALAR_7},
-    dependencies::EmitterClient,
-    emissions,
-    errors::BackstopError,
-    events::BackstopEvents,
-    storage,
+    backstop::{self, load_pool_backstop_data, PoolBackstopData, UserBalance, Q4W}, constants::{MAX_BACKFILLED_EMISSIONS, SCALAR_7}, dependencies::EmitterClient, emissions, errors::BackstopError, events::BackstopEvents, storage
 };
+
 use soroban_sdk::{contract, contractclient, contractimpl, panic_with_error, Address, Env, Vec};
 
 /// ### Backstop
@@ -247,6 +242,8 @@ impl Backstop for BackstopContract {
     fn pool_data(e: Env, pool: Address) -> PoolBackstopData {
         load_pool_backstop_data(&e, &pool)
     }
+
+
 
     fn backstop_token(e: Env) -> Address {
         storage::get_backstop_token(&e)

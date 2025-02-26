@@ -1,5 +1,7 @@
 #![no_std]
 
+mod certora_specs;
+
 #[cfg(any(test, feature = "testutils"))]
 extern crate std;
 
@@ -12,8 +14,6 @@ mod errors;
 mod events;
 mod storage;
 mod testutils;
-
-mod certora_specs;
 
 pub use backstop::{PoolBackstopData, PoolBalance, UserBalance, Q4W};
 pub use contract::*;

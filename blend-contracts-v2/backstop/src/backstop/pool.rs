@@ -18,6 +18,17 @@ pub struct PoolBackstopData {
     pub usdc: i128,    // the amount of usdc held in the pool's backstop via backstop tokens
 }
 
+impl cvlr::nondet::Nondet for PoolBackstopData {
+    fn nondet() -> Self {
+        return Self {
+            tokens: cvlr::nondet(),
+            q4w_pct: cvlr::nondet(),
+            blnd: cvlr::nondet(),
+            usdc: cvlr::nondet(),
+        };
+    }
+}
+
 pub fn load_pool_backstop_data(e: &Env, address: &Address) -> PoolBackstopData {
     let pool_balance = storage::get_pool_balance(e, address);
     let q4w_pct = if pool_balance.shares > 0 {

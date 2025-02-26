@@ -41,6 +41,17 @@ pub struct BackstopEmissionData {
     pub last_time: u64,
 }
 
+impl cvlr::nondet::Nondet for BackstopEmissionData {
+    fn nondet() -> Self {
+        return BackstopEmissionData {
+            expiration: cvlr::nondet(),
+            eps: cvlr::nondet(),
+            index: cvlr::nondet(),
+            last_time: cvlr::nondet(),
+        }
+    }
+}
+
 /// The user emission data for the reserve b or d token
 #[derive(Clone)]
 #[contracttype]

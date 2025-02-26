@@ -1,3 +1,4 @@
+use cvlr_soroban::nondet_vec;
 use soroban_sdk::{contracttype, panic_with_error, vec, Env, Vec};
 
 use crate::{
@@ -13,12 +14,31 @@ pub struct Q4W {
     pub exp: u64,     // the expiration of the withdrawal
 }
 
+impl cvlr::nondet::Nondet for Q4W {
+    fn nondet() -> Self {
+        Self {
+            amount: cvlr::nondet(),
+            exp: cvlr::nondet()
+        }
+    }
+}
+
 /// A deposit that is queued for withdrawal
 #[derive(Clone)]
 #[contracttype]
 pub struct UserBalance {
     pub shares: i128,  // the balance of shares the user owns
     pub q4w: Vec<Q4W>, // a list of queued withdrawals
+}
+
+
+impl cvlr::nondet::Nondet for UserBalance {
+    fn nondet() -> Self {
+        Self {
+            shares: cvlr::nondet(),
+            q4w: nondet_vec()
+        }
+    }
 }
 
 impl UserBalance {
@@ -115,6 +135,7 @@ impl UserBalance {
     /// If they don't have enough queued shares to dequeue
     #[allow(clippy::comparison_chain)]
     pub fn dequeue_shares(&mut self, e: &Env, to_dequeue: i128) {
+        
         // validate the invoke has enough unlocked Q4W to claim
         // manage the q4w list while verifying
         let mut left_to_dequeue: i128 = to_dequeue;

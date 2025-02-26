@@ -1,5 +1,4 @@
-#![cfg(test)]
-
+#![cfg(any(test, feature = "testutils"))]
 use crate::{
     backstop::Q4W,
     dependencies::{CometClient, COMET_WASM},

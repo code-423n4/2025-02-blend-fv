@@ -1,5 +1,10 @@
 use crate::{contract::require_nonnegative, emissions, storage, BackstopError};
+
+#[cfg(feature = "certora")]
+use crate::certora_specs::mocks::token::TokenClient;
+#[cfg(not(feature = "certora"))]
 use sep_41_token::TokenClient;
+
 use soroban_sdk::{panic_with_error, Address, Env};
 
 use super::require_is_from_pool_factory;
