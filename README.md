@@ -61,7 +61,7 @@ Note that some setup work and basic properties are already being provided by the
   - To run the prover with some conf file do the following:
   ```
   cd confs
-  certoraSorobanProver.py FILENAME.conf
+  certoraSorobanProver FILENAME.conf
   ```
   - Note that you might first need to run `chmod +x certora_build.py` before you run `cd confs`
 
