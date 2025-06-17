@@ -8,6 +8,9 @@ use crate::{
     storage,
 };
 
+#[cfg(feature = "certora")]
+use crate::certora_specs::{self, mocks::{self, pool_factory::*}};
+
 /// The pool's backstop data
 #[derive(Clone)]
 #[contracttype]
@@ -93,7 +96,10 @@ pub fn load_pool_backstop_data(e: &Env, address: &Address) -> PoolBackstopData {
 /// If the pool address cannot be verified
 pub fn require_is_from_pool_factory(e: &Env, address: &Address, balance: i128) {
     if balance == 0 {
+        #[cfg(not(feature = "certora"))]
         let pool_factory_client = PoolFactoryClient::new(e, &storage::get_pool_factory(e));
+        #[cfg(feature = "certora")]
+        let pool_factory_client = mocks::pool_factory::PoolFactoryClient::new(e, address);
         if !pool_factory_client.is_pool(address) {
             panic_with_error!(e, BackstopError::NotPool);
         }
@@ -129,6 +135,16 @@ pub struct PoolBalance {
     pub shares: i128, // the amount of shares the pool has issued
     pub tokens: i128, // the number of tokens the pool holds in the backstop
     pub q4w: i128,    // the number of shares queued for withdrawal
+}
+
+impl cvlr::nondet::Nondet for PoolBalance {
+    fn nondet() -> Self {
+        Self {
+            shares: cvlr::nondet(),
+            tokens: cvlr::nondet(),
+            q4w: cvlr::nondet()
+        }
+    }
 }
 
 impl PoolBalance {
