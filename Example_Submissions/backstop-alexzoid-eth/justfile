@@ -1,0 +1,14 @@
+export RUSTFLAGS := "-C strip=none" 
+
+root := "../"
+target := "../target"	
+
+build-deps:
+    cd {{root}} && cargo rustc --manifest-path=pool-factory/Cargo.toml --crate-type=cdylib --target=wasm32-unknown-unknown --release
+    cd {{root}} && cargo rustc --manifest-path=backstop/Cargo.toml --crate-type=cdylib --target=wasm32-unknown-unknown --release --features "certora_vec_q4w,certora_storage_ghost,certora_emission_summarized,certora_token_mock,certora_pool_factory_mock"
+    cd {{root}} && cargo rustc --manifest-path=pool/Cargo.toml --crate-type=cdylib --target=wasm32-unknown-unknown --release
+build: build-deps
+    cargo rustc --crate-type=cdylib --target=wasm32-unknown-unknown --release --features "certora_vec_q4w,certora_storage_ghost,certora_emission_summarized,certora_token_mock,certora_pool_factory_mock"
+
+clean:
+    rm -rf {{target}}

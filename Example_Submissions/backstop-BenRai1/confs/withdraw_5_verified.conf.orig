@@ -1,0 +1,9 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "precise_bitwise_ops": true,
+    "process": "emv",
+    "rule": ["withdraw_amount_negative","withdraw_amount_bigger_than_unlocked","withdraw_reduce_q4w_sum", "withdraw_to_return_zero", "withdraw_returns_tokens"],
+    "server": "production",
+    "msg": "withdraw 5"
+}

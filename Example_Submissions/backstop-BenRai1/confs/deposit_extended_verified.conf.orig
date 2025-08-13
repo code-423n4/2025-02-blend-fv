@@ -1,0 +1,16 @@
+{
+	"build_script": "../certora_build.py",
+	"optimistic_loop": true,
+	"process": "emv",
+	"rule": [
+		"deposit_shares_to_mint"
+	],
+	"rule_sanity": "basic",
+    "smt_timeout": "7200",
+	"msg": "deposit extended",
+
+
+	"prover_args": [
+		"-split false",
+	]
+}

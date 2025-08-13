@@ -1,0 +1,9 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "precise_bitwise_ops": true,
+    "process": "emv",
+    "rule": ["non_queued_tokens","convert_to_shares_rounds_down","convert_to_shares_no_shares","require_is_from_pool_factory_passes_false","require_is_from_pool_factory_passes_true"],
+    "msg": "pool 2",
+    "rule_sanity": "basic"
+}

@@ -1,0 +1,9 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "precise_bitwise_ops": true,
+    "process": "emv",
+    "rule": ["dequeue_reduce_pool_q4w","dequeue_increase_shares","dequeue_remove_requests","dequeue_no_request","dequeue_does_not_increase_length"],
+    "server": "production",
+    "msg": "withdraw 4"
+}

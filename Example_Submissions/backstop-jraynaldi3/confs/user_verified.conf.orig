@@ -1,0 +1,25 @@
+{
+    "build_script": "../certora_build.py",
+    //"optimistic_loop": true,
+    "loop_iter": "2",
+    "precise_bitwise_ops": true,
+    "process": "emv",
+    "rule": [
+        "add_shares_increases_user_shares",
+        "queue_shares_for_withdrawal_lte_balance",
+        "queue_shares_for_withdrawal_q4w_len_maximum",
+        "queue_shares_for_withdrawal_decrease_shares",
+        "queue_shares_for_withdrawal_push_q4w",
+        "withdraw_shares_first_q4w_amount_decrease",
+        "withdraw_shares_first_q4w_pop",
+        "withdraw_shares_lte_q4w_amount",
+        "withdraw_shares_not_expired",
+        "withdraw_shares_decrease_q4w_amount",
+        "dequeue_shares_decrease_q4w_amount",
+        "dequeue_shares_pop",
+        "dequeue_shares_lte_total_q4w_amount"
+    ],
+    "rule_sanity": "basic"
+}
+
+        

@@ -1,0 +1,24 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "precise_bitwise_ops": true,
+    "process": "emv",
+    "rule": [
+        //"conversion_monotonicity_sts",
+        //"conversion_monotonicity_tst",
+        "conversion_of_zero",
+        "conversion_pool_zero_shares",
+        //"simple_token_roundtrip_correct",
+        //"simple_share_roundtrip_correct",
+        "deposit_add_tokens",
+        "deposit_add_shares",
+        "withdraw_reduce_tokens",
+        "withdraw_reduce_shares",
+        "withdraw_reduce_q4w",
+        "withdraw_positive_value",
+        "queue_for_withdraw_add_q4w",
+        "dequeue_q4w_reduce_q4w",
+        "dequeue_q4w_positive_value"
+    ],
+    "rule_sanity": "basic"
+}

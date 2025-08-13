@@ -1,0 +1,9 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "precise_bitwise_ops": true,
+    "process": "emv",
+    "rule": ["queue_increase_length","queue_not_enough_shares","queue_max_q4w_size","queue_returns_last_request","queue_increase_pool_q4w"],
+    "server": "production",
+    "msg": "withdraw 2"
+}

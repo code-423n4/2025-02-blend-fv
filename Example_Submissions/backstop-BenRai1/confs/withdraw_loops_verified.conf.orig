@@ -1,0 +1,12 @@
+{
+    "build_script": "../certora_build.py",
+    //"optimistic_loop": true,
+    "loop_iter": "3",
+    "precise_bitwise_ops": true,
+    "process": "emv",
+    "rule": [
+        "queue_increase_user_sum_q4w"
+    ],
+    "server": "production",
+    "msg": "withdraw_loops"
+}

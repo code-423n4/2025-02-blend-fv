@@ -1,0 +1,9 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": ["draw_pool_tokens_change","draw_pool_shares_q4w_not_change","draw_balance_changes","donate_balance_change",
+                "donate_pool_tokens_change","donate_pool_shares_q4w_not_change","donate_allowance_change"],
+    "rule_sanity": "basic",
+    "msg": "fund",
+}

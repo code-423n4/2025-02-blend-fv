@@ -1,0 +1,34 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "loop_iter": "2",
+    "precise_bitwise_ops": true,
+    "process": "emv",
+    "rule": [
+        //"withdraw_queue_reduce_tokens",
+        ///execute withdraw
+        //"ew_amount_to_withdraw_nonnegative",
+        "ew_pop_q4w",
+        //"ew_transfer_backstop_from",
+        //"ew_transfer_backstop_contract",
+        ///execute queue withdrawal
+        //"eqw_only_positive",
+        //"eqw_reduce_balance",
+        //"eqw_return_value",
+        //"eqw_add_pool_queue",
+        ///execute dequeue withdrawal
+        //"edw_add_user_shares",
+        //"edw_pop_q4w",
+        //"edw_added_shares_lte_q4w_amount",
+        //"edw_reduce_pool_q4w",
+        //"edw_pool_q4w_non_negative"
+    ],
+    "smt_timeout": "7200",
+    "prover_args": [
+        "-split false",
+        "-splitParallel true",
+        "-dontStopAtFirstSplitTimeout true",
+        "-smt_preciseBitwiseOps"
+    ]
+    //"rule_sanity": "basic"
+}

@@ -1,0 +1,10 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "precise_bitwise_ops": true,
+    "process": "emv",
+    "rule": [
+        "deposit_calculates_correct_shares"
+    ],
+    "rule_sanity": "basic"
+}

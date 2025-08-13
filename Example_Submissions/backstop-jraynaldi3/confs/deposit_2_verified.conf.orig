@@ -1,0 +1,13 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    //"precise_bitwise_ops": true,
+    "process": "emv",
+    "rule": [
+        "execute_deposit_add_user_shares",
+        "execute_deposit_add_pool_tokens_shares",
+        "execute_deposit_transfer_backstop_from",
+        "execute_deposit_transfer_backstop_contract"
+    ],
+    "rule_sanity": "basic"
+}

@@ -1,0 +1,8 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": ["deposit_amount_negative","deposit_from_pool_address","deposit_pool_address_not_from_pool_factory","deposit_amount_to_mint_zero"],
+    "msg": "deposit_no_sanity",
+
+}

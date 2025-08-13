@@ -1,0 +1,8 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": ["draw_amount_negative","draw_pool_tokens_less_than_amount","donate_amount_negative","donate_from_pool_address","donate_pool_address_not_from_pool_factory"],
+    "msg": "fund_no_sanity",
+
+}

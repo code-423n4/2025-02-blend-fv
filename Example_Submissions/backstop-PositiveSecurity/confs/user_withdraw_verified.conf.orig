@@ -1,0 +1,10 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "loop_iter": "2",
+    "precise_bitwise_ops": true,
+    "process": "emv",
+    "rule": [
+        "withdraw_shares_decreases_q4w_total"
+    ]
+}
