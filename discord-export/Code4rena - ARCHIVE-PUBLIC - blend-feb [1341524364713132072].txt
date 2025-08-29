@@ -1,0 +1,690 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-PUBLIC / blend-feb
+==============================================================
+
+[02/21/2025 22:04] itsmetechjay (pinned)
+👋 Hello and welcome to the $125,000 in USDC **Blend V2 Audit + Certora Formal Verification** channel!
+
+📆 Audit opens Monday, 24 February 2025 20:00 (20:00 UTC) and runs through Monday, 17 March 2025 20:00 (20:00 UTC) (21 days).
+
+Please give a warm welcome to the Blend team, particularly @mootz12, who will be available for questions either here in the channel or via a PRIVATE thread in the ET timezone. 
+
+🤖 **Documentation bot assistance:** For general questions about the codebase, give our documentation bot a try, by tagging `@Docs Wolf` in any thread (private or public) and asking your question. The bot will make its best attempt to answer based on the codebase and documentation, and link you to relevant resources.  
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/audits/2025-02-blend-v2-audit-certora-formal-verification
+
+{Reactions}
+🔥 
+
+[02/21/2025 22:05] itsmetechjay (pinned)
+ℹ️ This audit includes **deployed code,** and [the "live criticals" exception](https://docs.code4rena.com/awarding/incentive-model-and-awards#the-live-criticals-exception) therefore applies.
+
+
+[02/21/2025 22:11] itsmetechjay
+Pinned a message.
+
+
+[02/21/2025 22:12] itsmetechjay
+Pinned a message.
+
+
+[02/24/2025 20:06] itsmetechjay
+ℹ️  Noting that `Docs Wolf` will be available for this audit in the next couple of days. We appreciate your patience!
+
+{Reactions}
+👍 
+
+[02/24/2025 20:23] itsmetechjay
+Time sped up! 😄 Docs Wolf is now available for questions.
+
+{Reactions}
+📈 (3) 😁 (2) BlendyTheKid 
+
+[02/24/2025 22:50] uaarrr
+@Jay | C4   so duplicates are paid right ? I saw the "Live/Deployed Code" this is why I ask
+
+
+[02/25/2025 02:01] itsmetechjay
+Duplicates that match the criteria will be the only ones in the duplicate set eligible for payout.
+
+
+[02/25/2025 05:47] unknown_user00019
+@Jay | C4 Can you please Explain what's the procedure to submit High/Critical Bugs of Live code ?
+
+
+[02/25/2025 05:49] unknown_user00019
+Or anyone can you plz explain, can't we submit Bugs normally for the Bugs in Live code ?
+
+
+[02/25/2025 13:37] itsmetechjay
+If you are reporting a bug that's in live code, please follow the process outlined in [our docs here](https://docs.code4rena.com/roles/wardens/submission-guidelines#how-to-submit-zero-day-or-otherwise-highly-sensitive-bugs).
+
+
+[02/26/2025 16:40] debof_
+Hello @Jay | C4 , I assume this means just critical bugs?
+
+
+[02/26/2025 17:45] itsmetechjay
+yes high severity or critical bugs found in live contracts
+
+{Reactions}
+👍 
+
+[02/27/2025 11:02] cloudellie
+I would recommend reading the docs quite carefully re: the recommendations here, as definitions of "critical" vary from one platform to another.
+
+{Reactions}
+👍 
+
+[02/27/2025 13:37] cloudellie
+🔆 GM all - keep an eye on the #📢・c4-updates channel today, as the Blend team will be doing a code walkthrough later today, at Thursday, 27 February 2025 21:00. We'll post full details as soon as we have them, but strongly recommended for everyone interested in this competition!
+
+
+[02/27/2025 13:54] insurgence_
+will this session be recorded ?
+
+
+[02/27/2025 14:12] cloudellie
+Yes - it will be streamed on https://m.twitch.tv/stellarorg and then posted to YouTube.
+
+
+[02/27/2025 18:47] cloudellie
+⏰  Details on the live code walk-through are now available here: https://discord.com/channels/810916927919620096/810929015509483554/1344742598698602569
+
+
+[02/27/2025 20:03] unpluggedtj
+Does the docs from readme contains details related to fee vault?
+I have a feeling it's V1 docs.
+
+
+[02/27/2025 20:48] mootz12
+The fee vault documentation is included in the fee vault folder in the audit repository and within the code itself. The documentation is pretty light, so lmk if you need more info
+
+{Reactions}
+👍 
+
+[02/28/2025 11:11] cloudellie (pinned)
+Cross-posting for visibility: the Blend V2 code walkthrough recording has been posted to YouTube https://www.youtube.com/watch?v=hfl1n5BKbs4
+
+{Embed}
+Stellar Development Foundation
+https://www.youtube.com/watch?v=hfl1n5BKbs4
+Stellar Developer Meeting - 02/27/2025 (Part 1)
+Blend, a universal liquidity protocol build on Stellar/Soroban, is preparing to release V2 and launched the Blend V2 Audit + Certora Formal Verification competition this past Monday. There are $125K in USDC up for grabs, and the team are joining this week’s meeting to talk about the competition and walk through some code. Join to learn more abou...
+Code4rena - ARCHIVE-PUBLIC - blend-feb [1341524364713132072].txt_Files/maxresdefault-48E65.jpg
+
+{Reactions}
+❤️ (2) 
+
+[02/28/2025 11:11] cloudellie
+Pinned a message.
+
+
+[02/28/2025 13:29] daniel526
+bugs/ inconsistencies found on privileged functions are considered out-of-scope, right?
+
+
+[02/28/2025 13:35] rscodes21
+likely yea ig. unless u can prove that it happens even if the admin behaves normally
+
+{Reactions}
+✅ (2) 
+
+[02/28/2025 13:58] attentioniayn
+Ty for the walkthrough mootz, very clear! Only problem I have with it is that you didn’t use Tom Bombadil throughout the codebase, maybe next time 😉
+
+{Reactions}
+sauron (3) 🧝‍♂️ 
+
+[03/01/2025 22:13] unpluggedtj
+The `fee-vault` repo's `pool.rs` contains a SDK
+```
+use blend_contract_sdk::pool::{Client as PoolClient, Request};
+```
+Which pool does this SDK call? the pool which are being used in the `blend-contracts-v2` repo.
+The SDK implementation seems to be outside of this audit.
+
+
+[03/02/2025 15:54] mootz12
+The `blend-contract-sdk` is just a crate with the built WASM contracts from the `blend-contracts-v2` repo, and it includes a helper function to deploy everything.
+
+https://github.com/blend-capital/blend-contract-sdk/blob/main/src/testutils.rs
+
+{Reactions}
+👍 
+
+[03/02/2025 19:52] lubakmanqk
+do you know how we can see diff of whats changed from previous version and this one
+
+
+[03/03/2025 00:14] .testerbot
+I have a question regarding "The live criticals exception" in this contest. What happens if I submit a finding with medium severity (using the normal submission form), which is later submitted as high (by other warden) via private disclosure and gets accepted? Will mine get upgraded? (Assume that my report identifies the root cause and signals the correct impact.)
+
+
+[03/03/2025 09:37] cloudellie
+"Will mine get upgraded?" is a difficult question to answer, because much depends on whether you are able to provide sufficient proof to meet the criteria of a High-risk finding. Your best bet is always to submit the most thorough, high-quality submission you can, and if you believe there's a High risk vector that affects the live contracts delineated in the `readme`, then submit it through the sensitive disclosure process.
+
+
+[03/03/2025 13:53] tigerfrake
+Anyone cracked that error when running `make` ?
+```solidity
+mkdir -p target/wasm32-unknown-unknown/optimized
+The syntax of the command is incorrect.
+make: *** [build] Error 1
+```
+
+
+[03/03/2025 13:57] attentioniayn
+I’ve had no issues running tests myself. There might be something wrong with your stellar setup
+
+
+[03/03/2025 13:58] tigerfrake
+lemme look into it again, thanks
+
+{Reactions}
+🫡 (2) 
+
+[03/03/2025 15:32] mootz12
+Are you on windows?
+
+
+[03/03/2025 16:03] tigerfrake
+I am
+
+
+[03/03/2025 18:38] mootz12
+Ah, yeah the `make` script assumes Linux or Mac OS. You could modify it to work on windows, or just use ubuntu's windows subsystem
+
+{Reactions}
+👍 
+
+[03/03/2025 19:07] tigerfrake
+Thanks, lemme do that
+
+{Reactions}
+👍 
+
+[03/04/2025 21:44] debof_
+Hi @0x41head Is that suposed to be private?
+
+
+[03/04/2025 21:44] insurgence_
+ah sorry
+
+{Reactions}
+👍 
+
+[03/07/2025 12:43] unpluggedtj
+Who can deploy the fee vault contract?
+Was going through the walkthrough, I inferred any user wallet can deploy, would be grateful if someone can confirm!
+
+
+[03/07/2025 13:23] mootz12
+Yeah, any1 who wants to manage a fee vault can deploy one.
+
+The most likely managers would be wallets, who want to offer an APR option for tokens like USDC / EURC. for example.
+
+{Reactions}
+👍 
+
+[03/09/2025 21:29] unpluggedtj
+The eps in `set_backstop_emission_eps` stands for earnings per share?
+(Sorry if this question is too dumb)
+
+
+[03/10/2025 03:33] abdallaae0
+Yea, windows sucks
+
+
+[03/10/2025 04:18] rscodes21
+emissions per second (not share) i think
+
+(look at L281 of manager.rs of the backstop folder, its divided by a time unit)
+
+{Reactions}
+👍 (2) 🫡 plus1 
+
+[03/12/2025 15:47] klau5_
+Is v.1.0.0 at https://github.com/blend-capital/blend-contracts the live version, or has it been upgraded since then? @mootz12
+
+
+[03/12/2025 16:32] mootz12
+It has not been upgraded, those are the live contracts
+
+{Reactions}
+thankyou 
+
+[03/13/2025 01:27] burhan_khaja
+@CloudEllie what if we submit high severity via sensitive disclouser but it is judged as MEDIUM, in that case what will happen, will that be eligible for any rewards later ?
+
+
+[03/13/2025 07:33] cloudellie
+Yes, awarding works the usual way
+
+
+[03/13/2025 20:22] luxpayband
+Keep pushing guys!
+
+{Reactions}
+🫡 (4) 
+
+[03/15/2025 20:58] parthmandale
+@CloudEllie @Jay | C4 Please confirm this. 
+
+Currently, 2 days (approx 47 Hours) are remaining before this contest ends (from the time I'm writing this msg) according to the dates written in the repo. 
+
+But in the top right corner, it shows `ENDS IN 1 DAY`, which is incorrect. I hope this is a technical mistake. Do give the confirmation. 
+
+Thanks!
+
+
+[03/15/2025 21:24] cloudellie
+The audit ends Monday at 20:00 UTC
+
+{Reactions}
+👍🏻 (3) 
+
+[03/15/2025 21:42] parthmandale
+Thank you for the clarification!
+
+{Reactions}
+hi5 (2) 
+
+[03/17/2025 17:56] cloudellie
+@🐺Wardens as we approach the submission deadline, a general note re: [sensitive disclosures](https://docs.code4rena.com/roles/wardens/submission-guidelines#how-to-submit-zero-day-or-otherwise-highly-sensitive-bugs) / live criticals: 
+- These are handled individually by staff and will be reviewed privately by the sponsor and judge
+- We will likely be unable to confirm receipt of each one as they come in. We'll do our best to update you over the next business day or two. 
+- Typically we don't share updates with wardens on the status of these reports unless the sponsor or judge has questions for you.
+
+Thank you for your patience as we work to triage the submissions in a timely manner, while prioritizing security first. 🙏
+
+{Embed}
+https://docs.code4rena.com/roles/wardens/submission-guidelines
+Submission guidelines | Code4rena
+
+{Reactions}
+👍 (8) 
+
+[03/17/2025 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺Wardens The **Blend V2 Audit + Certora Formal Verification**  is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks.
+
+{Reactions}
+🚀 (16) 🫡 
+
+[03/28/2025 02:16] totdking
+noice
+
+
+[03/28/2025 04:52] tigerfrake
+How goes things here?
+
+{Reactions}
+🥲 👀 
+
+[03/29/2025 18:23] codertjay
+I am actually curious on how many issues found on this protocol
+
+
+[03/30/2025 05:02] tigerfrake
++1
+
+
+[03/30/2025 05:42] codertjay
+Lmao thats a  tricky one because the channel is silent 🙄  and i am like why is here so silent 😂
+
+{Reactions}
+😂 
+
+[04/01/2025 06:52] akxai
+Unable to view the dashboard.
+
+
+[04/01/2025 06:56] cloudellie
+This audit included live code, so the dashboard won’t be visible to non-SR wardens.
+
+{Reactions}
+👍🏻 (2) 
+
+[04/02/2025 01:38] .testerbot
+Can’t dm you @CloudEllie
+
+{Reactions}
+🧵 (2) 
+
+[04/03/2025 09:19] daniel526
+wen?
+
+
+[04/03/2025 09:20] cloudellie
+I expect judging will be finalized today.
+
+{Reactions}
+🫡 (5) 
+
+[04/04/2025 01:20] itsmetechjay
+🤑 🎉  Awards for **Blend V2 Audit + Certora Formal Verification**:
+
+$19,124.13 USDC » @0x007
+$9,151.12 USDC » @oakcobalt
+$7,272.47 USDC » @monrel
+$6,232.06 USDC » @rscodes
+$5,692.57 USDC » @Testerbot
+$5,134.32 USDC » 0xAlix2 (@a_kalout and @ali_shehab)
+$4,758.80 USDC » @Tricko
+$4,178.13 USDC » @Sparrow
+$1,350.23 USDC » @aldarion
+$1,326.32 USDC » @ZanyBonzy
+$1,235.98 USDC » @0xadrii
+$1,147.61 USDC » @klau5
+$1,121.24 USDC » @carrotsmuggler
+$1,076.86 USDC » @0x37
+$1,031.26 USDC » @YouCrossTheLineAlfie
+$974.18 USDC » @mahdikarimi
+$927.12 USDC » @0xabhay
+$900.10 USDC » @Tigerfrake
+$881.77 USDC » @cu5t0mpeo
+$730.36 USDC » @alexxander
+$603.49 USDC » rapid (@dhank and @LeFy)
+$465.73 USDC » @anonymous0256
+$389.02 USDC » @Attention
+$136.52 USDC » @peakbolt
+$122.06 USDC » @adam-idarrha
+$122.06 USDC » @kirkeelee
+$92.41 USDC » @audithare
+$76.71 USDC » @slylandro_star
+$45.35 USDC » @jasonxiale
+
+🏁 Findings summary
+--------------------------------------—
+4 High risk findings
+17 Med risk findings
+654 wardens participated
+
+Top Hunter: 0x007
+Top Gatherer: oakcobalt, Testerbot
+Top QA report: ZanyBonzy
+
+Awards will be distributed on Polygon within the next week. Congratulations all!  💸 💸 💸
+
+⚠️ Awardees, be sure to [complete your tax reporting info](https://docs.code4rena.com/awarding/incentive-model-and-awards/awarding-process#tax-information-for-code4rena-contributors-wardens-judges-etc) if you haven't already. This must be completed within 30 days (i.e. before Saturday, 03 May 2025) to receive your award distribution for this audit.
+
+ℹ️ *Please note - the formal verification awards for this audit are still pending.*
+
+{Reactions}
+🔥 (9) clapping (2) 
+
+[04/04/2025 05:20] monrel
+@CloudEllie do you know if the judge and sponsor had a chance to look at the 3 reports that received comments just before PJQA ended? They are the only reports without responses in PJQA.
+
+{Reactions}
+👍 
+
+[04/04/2025 07:56] anonymous0256
+@CloudEllie this was my first time competing in a contest so not sure how everything works yet, is there a way to know which of my submitted issues were accepted and of the ones that weren’t accepted to know the reason why they weren’t.
+Thank you.
+
+
+[04/04/2025 08:01] rscodes21
+there are sensitive submissions in this contest(affects live code) so u'll have to wait a week or 2 maybe until the report gets released
+
+{Reactions}
+🤝 
+
+[04/04/2025 08:05] anonymous0256
+@rscodes would it also be revealed why some of the submissions weren’t accepted.
+
+
+[04/04/2025 09:02] cloudellie
+Started a thread.
+
+
+[04/04/2025 09:02] cloudellie
+Yes, as rscodes noted, this particular audit includes live code, so submission details will be published once the report is made public.
+
+{Reactions}
+🤝 
+
+[04/04/2025 10:13] unpluggedtj
+Congratulations everyone 🥂 
+I had fun auditing this one!
+
+{Reactions}
+🙌 (3) 
+
+[04/04/2025 13:48] bozwkd
+Why is my finding still in review and they already published all the bugs?
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - blend-feb [1341524364713132072].txt_Files/image0-C89C3.jpg
+
+
+[04/04/2025 13:50] bozwkd
+Because I don't have the role of SR they don't take into account some findings or how?
+
+
+[04/04/2025 13:50] bozwkd
+@CloudEllie
+
+
+[04/04/2025 13:52] cloudellie
+Every submission is reviewed by the validator; all except those labeled as spam are also reviewed by the judge, regardless of SR status.
+
+
+[04/04/2025 13:58] bozwkd
+Is that finding  spam??
+
+
+[04/04/2025 14:00] bozwkd
+I provided a PoC of what I'm talking about, also other findings that lowered the severity is under review but I see that they already released the total bugs
+
+
+[04/04/2025 14:11] bozwkd
+My question is why there are still bugs in review and already announced the winners, also I have not received any feedback as to why the finding was not accepted (not even in the timeline it appears as invalid). I would appreciate it if you could review my case because I think you have missed  something @CloudEllie
+
+
+[04/04/2025 14:14] cloudellie
+Both of your submissions were marked as invalid by the validator, and the judge confirmed them as invalid. We don't ask sponsors to review submissions that are invalidated by both the validator and the judge, which is why `Review` shows as `In progress` -- it just means the sponsor did not add a label. 
+
+Our UI needs some work, I know.
+
+
+[04/04/2025 14:15] bozwkd
+Mmm...
+
+
+[04/04/2025 14:15] bozwkd
+Ok, it was invalid but why?
+
+
+[04/04/2025 14:17] bozwkd
+There is a comment box where you all can inform the wardens
+
+
+[04/04/2025 14:20] bozwkd
+```which is why `Review` shows as `In progress` -- it just means the sponsor did not add a label. ```
+
+
+[04/04/2025 14:23] bozwkd
+This kind of thing ruins the experience for new wardens, because you are leaving a response from you to the wardens as the responsibility of the sponsors.
+
+{Reactions}
+🧵 
+
+[04/04/2025 14:23] kirkeelee
+You are speculating for a contest of which results are currently private.  Judge or validator comments are invisible right now if you don't have SR access.
+
+
+[04/04/2025 14:27] bozwkd
+I'm not speculating, it's the answer CloudEllie said
+
+
+[04/04/2025 20:30] mylifechangefast.eth_70767
+Do judges get to review a low finding if a validator blindly downgraded it to low? 
+
+Meaning can a judge change a low severity to High one even if the sponsor didn't say anything on it. 
+
+Because I feel a validator at times might not know the impact of the issue the SR submitted. 
+
+How is the process like sir?
+
+
+[04/04/2025 20:31] cloudellie
+Validators cannot change severity. Judges review everything that isn’t marked as spam.
+
+
+[04/04/2025 20:35] mylifechangefast.eth_70767
+`What do you mean by validators cannot change severity? `
+
+Do you mean if I submit a High a validator cannot change it severity?, will he just judge it or make it as spam? 
+
+Cause I see some issues submit as High turned to low by the validator, what do you mean actually?
+
+
+[04/04/2025 20:38] cloudellie
+Validators do not judge, period. They add an evaluation about the quality and validity of each submission for the sponsor and  judge’s consideration.
+
+
+[04/04/2025 20:38] cloudellie
+And they de-duplicate the submissions.
+
+{Reactions}
+👍 
+
+[04/04/2025 20:39] cloudellie
+If the severity was changed, that would have been done by the judge.
+
+{Reactions}
+🫡 
+
+[04/05/2025 03:01] bozwkd
+@CloudEllie 
+
+```
+PoC:
+
+    1. Setup: A UserBalance is initialized with 800 available shares (self.shares = 800) and an existing queued withdrawal of 200 shares (q4w with amount: 200, exp: 12592000).
+
+    2. Queue Shares: The user queues 100 shares for withdrawal, reducing self.shares from 800 to 700 (as expected, since queue_shares_for_withdrawal deducts to_q from self.shares).
+
+    3. Dequeue Shares: The user dequeues 100 shares from the queue. The expectation might be that self.shares increases back to 800 (restoring the original balance), but it remains 700.
+
+    4. Assertion: The test confirms self.shares == 700 after dequeuing, proving that the dequeued shares are not returned.
+```
+
+If I sent a fixed poc demonstrating this, why wouldn't it be a issue?
+
+
+[04/05/2025 03:03] bozwkd
+As I don't have the SR role yet I don't see any feedback, but I would like to know why
+
+
+[04/05/2025 15:20] dadekuma
+You will have to wait until the report is published to see why this is invalid
+
+
+[04/06/2025 08:57] alchmy952
+What does it mean if a QA report was tagged as "C"?
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - blend-feb [1341524364713132072].txt_Files/Screenshot_2025-04-06-09-56-39-413-edit_co-F6C70.jpg
+
+
+[04/06/2025 10:02] daniel526
+it's a grade-c QA which do not qualify for a reward
+
+{Reactions}
+👍 (2) 
+
+[04/08/2025 18:40] unclejeff4407
+Low quality QA report
+
+
+[04/14/2025 22:19] emerald7017
+Make it executable p-of-c, instead of theoretical. Spotting the bug 🐛 is just the first step through the door. Weaponizing it to extract that HIGH severity impact is the real hustle. Make it executable to reproduce and you saved yourself that explanation.
+
+{Reactions}
+👍 (3) this (3) ✌️ 💀 (2) 
+
+[04/17/2025 13:40] burhan_khaja
+Any updates on formal verification part?
+
+
+[04/17/2025 14:21] cloudellie
+Nothing yet - I've asked Certora for an update
+
+
+[04/26/2025 09:07] burhan_khaja
+👀
+
+
+[06/13/2025 10:44] burhan_khaja
+@CloudEllie even raac has finished judging, any updates on fv part ?
+
+
+[07/08/2025 18:26] cloudellie
+🤑 🎉  Awards for the ** Formal Verification component of the Blend V2 competitive audit**
+
+$5,965.65 USDC » @alexzoid
+$2,171.95 USDC » @Junnon
+$2,096.76 USDC » @BenRai
+$2,017.23 USDC » @krlz
+$1,377.41 USDC » @0x00ffDa
+$1,054.90 USDC » @kind0dev
+$950.01 USDC » @Joe
+$813.59 USDC » @LeoGold
+$701.29 USDC » @slvDev
+$532.09 USDC » @Zac🇬🇧
+$514.87 USDC » @burhan_khaja
+$461.67 USDC » @LSH.F.GJ
+$368.16 USDC » @Tricko
+$316.28 USDC » @bharg4v
+$180.17 USDC » @kirkeelee
+$180.17 USDC » @X0r_D3v1L
+$165.60 USDC » @d4r3d3v1l
+$132.21 USDC » @Nikki
+
+Awards will be distributed on **Polygon** within the next week. Congratulations all!  💸 💸 💸
+
+⚠️ Awardees, be sure to [complete your tax reporting info](https://docs.code4rena.com/awarding/incentive-model-and-awards/awarding-process#tax-information-for-code4rena-contributors-wardens-judges-etc) if you haven't already. This must be completed within 30 days (i.e. before Thursday, 07 August 2025) to receive your award distribution for this audit.
+
+{Reactions}
+🚀 (3) 
+
+[07/09/2025 12:13] 0xjoeee
+Hello @CloudEllie , I believe there is a wrong name populated on the 7th line. That has to be mine 4l0n3r. You can see that *X0r_D3v1L* is also mentioned on the 16th line.
+
+{Reactions}
+👀 
+
+[07/09/2025 13:15] covey0x07
+perfect audit~ 😂
+
+{Reactions}
+😆 😄 
+
+[07/16/2025 15:52] cloudellie
+Apologies - this has been corrected!
+
+
+[07/16/2025 15:55] 0xjoeee
+Thanks!
+
+
+[08/22/2025 15:45] C4
+ℹ️ This channel is pending archive.   As a result, any private threads will be permanently deleted 08/29/2025 15:39. Please make sure to grab anything you might need before then.
+
+
+[08/28/2025 16:35] C4
+ℹ️ Reminder: this channel will be deleted after 24 hours.
+
+
+==============================================================
+Exported 111 message(s)
+==============================================================
